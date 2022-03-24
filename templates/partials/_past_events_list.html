@@ -1,0 +1,28 @@
+{% load static %}
+{% load event_filters %}
+
+<ul class="events-list">
+  {% for event in events %}
+    <li class="card event">
+      {% if event.image|length > 0 %}
+        <img class="event-image" src="{{ event.image.url }}" alt="">
+      {% else %}
+        <img class="event-image" src="{% static 'images/image_placeholder.jpg' %}" alt="">
+      {% endif %}
+      <div class="event-info">
+        <h2>{{ event.title }}</h2>
+        <h3>{{ event.datetime }} | £{{ event.cost }}</h3>
+        <p>{{ event.description }}</p>
+      </div>
+      <div class="event-controls">
+        {% if user.is_authenticated %}
+        {% if user|is_attending:event %}
+
+        <a href="{% url 'events_details' event.id %}" class="button gray">Details</a>
+        <a href="{% url 'new_review' event.id%}" class="button green">Add Review</a>
+    {% endif %}  
+    {% endif %}
+    </div>
+    </li>
+  {% endfor %}
+</ul>

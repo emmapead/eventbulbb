@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main>
+
+
+    <section id="event-list" class="card-background">
+
+      <section class = "dashboard_columns">
+        <section class="card-C">
+          <section class="card">
+            <h2>Upcoming Events</h2>
+          </section>
+      {% include 'partials/_events_list.html' with events=events %}
+    </section>
+    <section class="card-C">
+      <section class="card">
+        <h2>Previously Attended</h2>
+      </section>
+      {% include 'partials/_past_events_list.html' with events=past_events %}
+    </section>
+    </section>
+  </main>
+
+
+{% endblock %}

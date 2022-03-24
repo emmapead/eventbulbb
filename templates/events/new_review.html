@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<main class="wrap-content">
+    <div class="card-background half-width event-details">
+    <section class="card event-header">
+        <div class="event-info">
+          <h2 class="event-title">{{ event.title }}</h2>
+          <h3>{{ event.datetime }}</h3>
+        </div>
+    </section>
+
+    <section class="card">
+        <img src="{% static 'images/image_placeholder.jpg' %}" alt="Placeholder">
+    </section>
+
+    <section class="card">
+        <p class="event-cost">Price: £{{ event.cost }}</p>
+        <p>{{ event.description }}</p>
+    </section>
+    
+
+<section class="card">
+          
+    <section class="review-form">
+        <form action="{% url 'new_review' event.id %}" method="post">
+            {% csrf_token %}  
+
+            <h2> Leave a review ?</h3>
+            <div class="rating">
+  
+                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+    
+            </div>
+
+
+        <label for="review">Tell us more</label>
+        <input type="textarea" name="review" id="review" class="textarea"></label>
+        <button type="submit" value="Submit review" class="button green">Submit Review</button> 
+
+        
+        </form>
+    </section>
+</section>
+</div>  
+
+
+
+</section>
+<main> 
+{% endblock %}

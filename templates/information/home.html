@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <main class="wrap-content">
+    <section class= "card-background">
+
+    <div class="slider">
+      <input type="radio" name="toggle" id="btn-1" checked>
+      <input type="radio" name="toggle" id="btn-2">
+      <input type="radio" name="toggle" id="btn-3">
+    
+      <div class="slider-controls">
+        <label for="btn-1"></label>
+        <label for="btn-2"></label>
+        <label for="btn-3"></label>
+      </div>
+    
+      <ul class="slides">
+        <li class="slide">
+          <div class="slide-content">
+            <h2 class="slide-title">What's on near you?</h2>
+            <p class="slide-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat dignissimos commodi eos totam perferendis possimus dolorem, deleniti vitae harum? Enim.</p>
+          </div>
+          <p class="slide-image">
+            <img src="https://placeimg.com/320/240/animals" alt="stuff" width="320" height="240">
+          </p>
+        </li>
+        <li class="slide">
+          <div class="slide-content">
+            <h2 class="slide-title">Book and manage events</h2>
+            <p class="slide-text">Nisi ratione magni ea quis animi incidunt velit voluptate dolorem enim possimus, nam provident excepturi ipsam nihil molestiae minus delectus!</p>
+
+          </div>
+          <p class="slide-image">
+            <img src="https://placeimg.com/320/240/tech" alt="stuff" width="320" height="240">
+          </p>
+        </li>
+        <li class="slide">
+          <div class="slide-content">
+            <h2 class="slide-title">Leave reviews</h2>
+            <p class="slide-text">Quisquam quod ut quasi, vero obcaecati laudantium asperiores corporis ad atque. Expedita fugit dicta maxime vel doloribus sequi, facilis dignissimos.</p>
+          </div>
+          <p class="slide-image">
+            <img src="https://placeimg.com/320/240/tech" alt="stuff" width="320" height="240">
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+{% endblock content %}

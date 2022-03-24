@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <main class="wrap-content">
+    <div class="card-background half-width event-details">
+      <section class="card event-header">
+        <div class="event-info">
+          <h2 class="event-title">{{ event.title }}</h2>
+          <h3>{{ event.datetime }}</h3>
+        </div>
+      </section>
+      <section class="card">
+        {% if event.image|length > 0 %}
+            <img class="event-image" src="{{ event.image.url }}" alt="">
+        {% else %}
+            <img class="event-image" src="{% static 'images/image_placeholder.jpg' %}" alt="">
+        {% endif %}
+      </section>
+      <section class="card">
+        <p class="event-cost">Price: £{{ event.cost }}</p>
+        <p>{{ event.description }}</p>
+      </section>
+
+      <section class = "card">
+        <section class = "reviews-scroller">
+        {% for review in event.reviews.all %}
+
+          <div class = "card" >
+            <p >{{ review.review }}</p>
+
+            {% if review.rating == 1 %}
+              <span class="star">★</span>
+              <span class="star-checked">★</span>
+              <span class="star-checked">★</span>
+              <span class="star-checked">★</span>
+              <span class="star-checked">★</span>
+            {% elif review.rating == 2 %}
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star-checked">★</span>
+              <span class="star-checked">★</span>
+              <span class="star-checked">★</span>
+            {% elif review.rating == 3 %}
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star-checked">★</span>
+              <span class="star-checked">★</span>
+            {% elif review.rating == 4 %}
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star-checked">★</span>
+            {% elif review.rating == 5 %}
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+
+            {% endif %}
+          </div>
+            
+           
+
+          {% endfor %}
+
+      </section> 
+    </section> 
+    </div>
+  </main>
+{% endblock %}
